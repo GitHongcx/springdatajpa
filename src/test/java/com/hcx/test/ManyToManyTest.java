@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
+ * 多对多关联查询
  * Created by hongcaixia on 2020/2/8.
  */
 @RunWith(SpringJUnit4ClassRunner.class)

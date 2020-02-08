@@ -39,7 +39,7 @@ public class Contacts {
     private String remark;
 
     //一个联系人从属于一个客户
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne(targetEntity = Customer.class,fetch = FetchType.LAZY)
     @JoinColumn(name = "contacts_customer_id",referencedColumnName = "id") //customer类的id
     private Customer customer;
 

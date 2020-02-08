@@ -45,7 +45,7 @@ public class Customer {
     //name:外键字段名称
     //referencedColumnName:当前外键参照的主表的主键字段名称
 //    @JoinColumn(name = "contacts_customer_id",referencedColumnName = "id")
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL) //一对多的配置参照：对方配置关系的属性名称
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.EAGER) //一对多的配置参照：对方配置关系的属性名称
     private Set<Contacts> contactsSet = new HashSet<>();
 
 }
