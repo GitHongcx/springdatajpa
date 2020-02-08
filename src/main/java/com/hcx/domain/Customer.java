@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by hongcaixia on 2020/2/7.
@@ -13,9 +15,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "customer")
 @Data
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
 public class Customer {
 
     @Id
@@ -40,5 +39,13 @@ public class Customer {
 
     @Column(name = "phone")
     private String phone;
+
+    //一个客户包含多个联系人
+//    @OneToMany(targetEntity = Contacts.class)
+    //name:外键字段名称
+    //referencedColumnName:当前外键参照的主表的主键字段名称
+//    @JoinColumn(name = "contacts_customer_id",referencedColumnName = "id")
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL) //一对多的配置参照：对方配置关系的属性名称
+    private Set<Contacts> contactsSet = new HashSet<>();
 
 }
